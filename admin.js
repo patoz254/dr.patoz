@@ -1,7 +1,7 @@
 // ══════════════════════════════════════
 // DATA — fetched from server or mocked
 // ══════════════════════════════════════
-const SERVER = 'http://localhost:3000';
+const SERVER = 'https://drpatoz-production.up.railway.app';
 
 let allBookings = [];
 let allClients  = [];
