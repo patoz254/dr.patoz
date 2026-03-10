@@ -2,7 +2,7 @@
 // script.js — Dr. Amara Osei Psychology Website
 // ============================================
 
-const SERVER_URL = 'http://localhost:3000';
+const SERVER_URL = 'https://drpatoz-production.up.railway.app';
 
 let selectedPrice = 3000;
 let selectedType  = 'Consultation / First Visit';
