@@ -11,7 +11,7 @@ const { createClient } = require('@supabase/supabase-js');
 const { Resend }       = require('resend');
 
 // ── Resend Email Client ──────────────────────
-const resend = new Resend(process.env.RESEND_API_KEY || 're_8VGZ52Xd_3XDGYyTBUviUXXd3EooEKnpF');
+const resend = new Resend(process.env.RESEND_API_KEY || 'YOUR_RESEND_API_KEY');
 const ADMIN_EMAIL    = 'hello@dramaraosei.co.ke'; // Dr. Osei's email
 const FROM_EMAIL     = 'onboarding@resend.dev'; // use this for testing; switch to your domain after verifying it in Resend
 const ZOOM_LINK      = 'https://zoom.us/j/YOUR_ZOOM_MEETING_ID'; // replace with Dr. Osei's fixed Zoom link
@@ -29,7 +29,15 @@ const supabase = createClient(
 const PAYSTACK_SECRET_KEY = 'sk_test_3d31805a750664886aab3d949fc99d8625f025ff'; // Replace with your key
 
 // ── Middleware ───────────────────────────────
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://dr-patoz.vercel.app',
+    'http://localhost:3000',
+    'http://127.0.0.1:5500'
+  ],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 app.use(express.static('public'));
 
