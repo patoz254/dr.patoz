@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Amara Osei — Psychologist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dr. Amara Osei</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">How It Works</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book a Session</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-tag fade-in">Licensed Clinical Psychologist</div>
+    <h1 class="fade-in-2">A space to <em>heal,</em><br>grow &amp; thrive</h1>
+    <p class="hero-desc fade-in-3">Evidence-based therapy tailored to your unique journey. Whether navigating anxiety, relationships, or life transitions — you don't have to do this alone.</p>
+    <div class="hero-actions fade-in-3">
+      <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book a Session</button>
+      <button class="btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Services</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-img-overlay"></div>
+      <div class="hero-photo-placeholder">
+        <div class="initials">AO</div>
+        <div>Dr. Amara Osei<br><small>Ph.D., Clinical Psychology</small></div>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">12+</span><span class="label">Years Practice</span></div>
+        <div class="hero-stat"><span class="num">500+</span><span class="label">Clients Helped</span></div>
+        <div class="hero-stat"><span class="num">4.9&#9733;</span><span class="label">Client Rating</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-img">
+    <div class="about-img-inner">
+      "Healing begins when we feel truly seen and heard."
+    </div>
+  </div>
+  <div>
+    <div class="section-tag">About Me</div>
+    <h2 class="section-title">Compassionate care<br>rooted in <em>science</em></h2>
+    <p>I'm Dr. Amara Osei, a licensed clinical psychologist with over 12 years of experience helping individuals navigate life's most challenging moments. My approach blends cognitive-behavioral therapy, mindfulness, and somatic techniques to create lasting, meaningful change.</p>
+    <br />
+    <p>I believe therapy should feel like a genuine human conversation — warm, honest, and free of judgment. My practice is a safe, affirming space for people of all backgrounds.</p>
+    <div class="about-credentials">
+      <div class="credential">
+        <span class="credential-icon">&#127891;</span>
+        <div class="credential-text"><strong>Ph.D. Clinical Psychology</strong>University of Cape Town · 2011</div>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">&#128203;</span>
+        <div class="credential-text"><strong>Licensed Psychologist</strong>Health Professions Council · Registration #HP-20114482</div>
+      </div>
+      <div class="credential">
+        <span class="credential-icon">&#129504;</span>
+        <div class="credential-text"><strong>Certified CBT Practitioner</strong>Beck Institute for Cognitive Behavior Therapy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-tag">What I Offer</div>
+  <h2 class="section-title">Therapy that meets<br>you <em>where you are</em></h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">&#128172;</div>
+      <div class="service-name">Individual Therapy</div>
+      <div class="service-desc">One-on-one sessions tailored to your personal challenges — anxiety, depression, trauma, identity, life transitions, and more.</div>
+      <div class="service-price">KES 6,000 · 60 min</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#128101;</div>
+      <div class="service-name">Couples Therapy</div>
+      <div class="service-desc">Rebuild connection, improve communication, and navigate conflict with guided support for you and your partner.</div>
+      <div class="service-price">KES 8,500 · 75 min</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#127807;</div>
+      <div class="service-name">Anxiety &amp; Stress</div>
+      <div class="service-desc">Evidence-based tools to manage anxiety, panic, and chronic stress using CBT, mindfulness, and breathing techniques.</div>
+      <div class="service-price">KES 6,000 · 60 min</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#129345;</div>
+      <div class="service-name">Mindfulness-Based Therapy</div>
+      <div class="service-desc">Integrate mindfulness practices into your therapeutic journey for deeper self-awareness and emotional regulation.</div>
+      <div class="service-price">KES 6,000 · 60 min</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#128187;</div>
+      <div class="service-name">Online Sessions</div>
+      <div class="service-desc">Secure, confidential video therapy from the comfort of your home. Available for all session types.</div>
+      <div class="service-price">KES 5,500 · 60 min</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">&#127807;</div>
+      <div class="service-name">Consultation / First Visit</div>
+      <div class="service-desc">Not sure where to start? A low-pressure introductory session to explore your needs and find the right path forward.</div>
+      <div class="service-price">KES 3,000 · 30 min</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-tag">How It Works</div>
+  <h2 class="section-title">From first step to<br><em>lasting change</em></h2>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div class="step-title">Book a Session</div>
+      <div class="step-desc">Choose your session type, pick a date and time that suits you, and complete a simple intake form.</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div class="step-title">Secure Payment</div>
+      <div class="step-desc">Pay safely online via card or M-Pesa. You'll receive an instant confirmation and session details.</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div class="step-title">Your First Session</div>
+      <div class="step-desc">We meet in-person or online. No pressure — just an honest, supportive conversation to understand your goals.</div>
+      <div class="step-connector"></div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div class="step-title">Grow Together</div>
+      <div class="step-desc">We build a personalised care plan and work together at your pace toward lasting wellbeing.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-tag">Book a Session</div>
+  <h2 class="section-title">Ready to begin<br>your <em>journey?</em></h2>
+  <div class="booking-grid">
+    <div class="booking-info">
+      <h3>Choose your session type</h3>
+      <p>Select the session that best fits your needs. Not sure? Start with a consultation — it's low commitment and a great way to see if we're a good fit.</p>
+      <div class="session-types">
+        <div class="session-type active" onclick="selectSession(this, 'Consultation / First Visit', 3000)">
+          <div class="session-type-name">Consultation / First Visit</div>
+          <div class="session-type-info">30 minutes · In-person or online</div>
+          <div class="session-type-price">KES 3,000</div>
+        </div>
+        <div class="session-type" onclick="selectSession(this, 'Individual Therapy', 6000)">
+          <div class="session-type-name">Individual Therapy</div>
+          <div class="session-type-info">60 minutes · In-person or online</div>
+          <div class="session-type-price">KES 6,000</div>
+        </div>
+        <div class="session-type" onclick="selectSession(this, 'Online Session', 5500)">
+          <div class="session-type-name">Online Session</div>
+          <div class="session-type-info">60 minutes · Video call</div>
+          <div class="session-type-price">KES 5,500</div>
+        </div>
+        <div class="session-type" onclick="selectSession(this, 'Couples Therapy', 8500)">
+          <div class="session-type-name">Couples Therapy</div>
+          <div class="session-type-info">75 minutes · In-person or online</div>
+          <div class="session-type-price">KES 8,500</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="booking-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="first-name" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="last-name" placeholder="Doe" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" placeholder="jane@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phone" placeholder="+254 700 000 000" />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="session-date" />
+          </div>
+          <div class="form-group">
+            <label>Preferred Time</label>
+            <select id="session-time">
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>What brings you in? (optional)</label>
+          <textarea placeholder="Share as much or as little as you'd like..."></textarea>
+        </div>
+        <div class="payment-section">
+          <div class="payment-header">Payment Details</div>
+          <div class="payment-methods">
+            <div class="pay-method active" onclick="selectPayment(this)">Card</div>
+            <div class="pay-method" onclick="selectPayment(this)">M-Pesa</div>
+            <div class="pay-method" onclick="selectPayment(this)">Bank Transfer</div>
+          </div>
+          <div class="card-fields" id="card-fields">
+            <input type="text" placeholder="Cardholder Name" />
+            <input type="text" placeholder="Card Number (16 digits)" maxlength="19" oninput="formatCard(this)" />
+            <div class="card-row">
+              <input type="text" placeholder="MM / YY" maxlength="7" />
+              <input type="text" placeholder="CVV" maxlength="3" />
+            </div>
+          </div>
+          <div class="order-summary">
+            <div class="summary-line"><span id="summary-type">Consultation / First Visit</span><span id="summary-price">KES 3,000</span></div>
+            <div class="summary-line"><span>Processing fee (2%)</span><span id="summary-fee">KES 60</span></div>
+            <div class="summary-total"><span>Total</span><span id="summary-total">KES 3,060</span></div>
+          </div>
+        </div>
+        <button class="submit-btn" onclick="handleBooking()">Confirm &amp; Pay Securely</button>
+        <div class="secure-note">256-bit SSL encryption · Your data is private &amp; protected</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-tag">Client Stories</div>
+  <h2 class="section-title">Real journeys,<br><em>real change</em></h2>
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <span class="quote-mark">"</span>
+      <div class="testimonial-text">Dr. Osei has a rare ability to make you feel completely at ease. For the first time in years I feel like I actually understand myself. The progress I've made in 6 months has been incredible.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">NK</div>
+        <div><div class="author-name">Njeri K.</div><div class="author-label">Individual Therapy · 6 months</div></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <span class="quote-mark">"</span>
+      <div class="testimonial-text">My partner and I were on the verge of separation. Couples therapy with Dr. Osei gave us the tools to really hear each other. We're stronger than we've ever been.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">DM</div>
+        <div><div class="author-name">David M.</div><div class="author-label">Couples Therapy · 4 months</div></div>
+      </div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <span class="quote-mark">"</span>
+      <div class="testimonial-text">I was skeptical about online therapy but Dr. Osei made it feel just as personal and safe as being in a room together. My anxiety is finally manageable.</div>
+      <div class="testimonial-author">
+        <div class="author-avatar">AF</div>
+        <div><div class="author-name">Amina F.</div><div class="author-label">Online Therapy · 3 months</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div style="text-align:center">
+    <div class="section-tag" style="justify-content:center">Common Questions</div>
+    <h2 class="section-title">Everything you<br>need to <em>know</em></h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Is everything I share kept confidential? <span class="faq-toggle">+</span></button>
+      <div class="faq-a">Yes. Everything shared in sessions is strictly confidential, in line with professional ethical guidelines. The only exceptions are if there is a risk of harm to yourself or others, which would be discussed openly with you.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">How do I know which session type is right for me? <span class="faq-toggle">+</span></button>
+      <div class="faq-a">If you're unsure, the Consultation session is the perfect starting point. It's a low-pressure 30-minute conversation to explore your needs and see if we're a good fit — with no obligation to continue.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">What happens after I book and pay? <span class="faq-toggle">+</span></button>
+      <div class="faq-a">You'll receive an immediate email confirmation with your session details, a short intake form to complete before we meet, and a Zoom link (for online sessions). For in-person sessions, you'll get the clinic address and directions.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Can I reschedule or cancel a session? <span class="faq-toggle">+</span></button>
+      <div class="faq-a">Yes. Cancellations or rescheduling made at least 24 hours in advance are fully refunded or rescheduled at no charge. Late cancellations (under 24 hours) may be subject to a 50% session fee.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">Do you offer payment plans? <span class="faq-toggle">+</span></button>
+      <div class="faq-a">I believe therapy should be accessible. Sliding scale fees are available for clients who demonstrate financial need — please reach out via email to discuss this privately before booking.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFAQ(this)">How long will I need therapy? <span class="faq-toggle">+</span></button>
+      <div class="faq-a">Every person's journey is unique. Some clients find significant relief in 6-12 sessions; others prefer ongoing support over a longer period. We'll regularly review your progress together and adjust the plan accordingly.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Dr. Amara Osei</div>
+      <div class="footer-tagline">Licensed Clinical Psychologist offering evidence-based, compassionate therapy in Nairobi and online across Kenya.</div>
+    </div>
+    <div>
+      <div class="footer-heading">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#booking">Book a Session</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Services</div>
+      <ul class="footer-links">
+        <li><a href="#services">Individual Therapy</a></li>
+        <li><a href="#services">Couples Therapy</a></li>
+        <li><a href="#services">Online Sessions</a></li>
+        <li><a href="#services">Anxiety &amp; Stress</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#">Westlands, Nairobi</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#aac2cfc6c6c5eaced8cbc7cbd8cbc5d9cfc384c9c584c1cf"><span class="__cf_email__" data-cfemail="abc3cec7c7c4ebcfd9cac6cad9cac4d8cec285c8c485c0ce">[email&#160;protected]</span></a></li>
+        <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+        <li><a href="#">Mon-Fri · 8 AM - 6 PM</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Dr. Amara Osei Psychology Practice. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-icon">&#9989;</div>
+    <h2>Booking Confirmed!</h2>
+    <div id="modal-body"><p>Your booking has been confirmed!</p></div>
+    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('active')">Close</button>
+  </div>
+</div>
+
+<!-- Paystack Payment SDK -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="payment.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

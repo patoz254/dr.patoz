@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard — Dr. Amara Osei</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+
+<!-- ══ LOGIN SCREEN ══ -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-brand">
+      <div class="login-brand-name">Dr. Amara Osei</div>
+      <div class="login-brand-sub">Admin Portal</div>
+      <div class="login-divider"></div>
+    </div>
+    <div class="session-info">
+      🔒 Secure access · Sessions expire after 8 hours
+    </div>
+    <div class="login-field">
+      <label>Username</label>
+      <input type="text" id="login-user" placeholder="admin" autocomplete="username" />
+    </div>
+    <div class="login-field">
+      <label>Password</label>
+      <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') attemptLogin()" />
+    </div>
+    <button class="login-btn" id="login-btn" onclick="attemptLogin()">Sign In</button>
+    <div class="login-error" id="login-error">Incorrect username or password. Please try again.</div>
+    <div class="login-hint">
+      Forgot your password? <a onclick="showToast('Contact your system administrator.')">Get help</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="sidebar-brand-name">Dr. Amara Osei</div>
+    <div class="sidebar-brand-sub">Admin Dashboard</div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Overview</div>
+    <a class="nav-item active" onclick="showPage('dashboard', this)">
+      <span class="nav-icon">📊</span> Dashboard
+    </a>
+
+    <div class="nav-section-label">Practice</div>
+    <a class="nav-item" onclick="showPage('bookings', this)">
+      <span class="nav-icon">📅</span> Bookings
+      <span class="nav-badge" id="pending-count">0</span>
+    </a>
+    <a class="nav-item" onclick="showPage('clients', this)">
+      <span class="nav-icon">👥</span> Clients
+    </a>
+    <a class="nav-item" onclick="showPage('messages', this)">
+      <span class="nav-icon">✉️</span> Messages
+      <span class="nav-badge" id="msg-count">0</span>
+    </a>
+
+    <div class="nav-section-label">Finance</div>
+    <a class="nav-item" onclick="showPage('revenue', this)">
+      <span class="nav-icon">💰</span> Revenue
+    </a>
+
+    <div class="nav-section-label">Settings</div>
+    <a class="nav-item" onclick="showPage('settings', this)">
+      <span class="nav-icon">⚙️</span> Settings
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div style="font-size:0.68rem;color:rgba(255,255,255,0.25);margin-bottom:0.8rem;letter-spacing:0.06em;" id="session-timer">
+      Session active
+    </div>
+    <div class="admin-profile">
+      <div class="admin-avatar">AO</div>
+      <div>
+        <div class="admin-name">Dr. Amara Osei</div>
+        <div class="admin-role">Administrator</div>
+      </div>
+      <button class="logout-btn" title="Sign out">⏻</button>
+    </div>
+  </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<main class="main">
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-left">
+      <h1 id="page-title">Overview</h1>
+      <p id="page-sub">Monday, 9 March 2026</p>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-search">
+        <span>🔍</span>
+        <input type="text" placeholder="Search clients, bookings..." oninput="handleSearch(this.value)" />
+      </div>
+      <div class="notif-btn">🔔<div class="notif-dot"></div></div>
+      <div class="today-badge">Today: <strong id="today-count">—</strong> sessions</div>
+    </div>
+  </div>
+
+  <!-- ══ DASHBOARD PAGE ══ -->
+  <div class="content page active" id="page-dashboard">
+    <div class="stats-row">
+      <div class="stat-card blue">
+        <div class="stat-label">Total Bookings</div>
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-delta">↑ 12% this month</div>
+        <div class="stat-icon">📅</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Revenue (KES)</div>
+        <div class="stat-value" id="stat-revenue">—</div>
+        <div class="stat-delta">↑ 8% vs last month</div>
+        <div class="stat-icon">💰</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-label">Pending Bookings</div>
+        <div class="stat-value" id="stat-pending">—</div>
+        <div class="stat-delta down">Needs attention</div>
+        <div class="stat-icon">⏳</div>
+      </div>
+      <div class="stat-card slate">
+        <div class="stat-label">Total Clients</div>
+        <div class="stat-value" id="stat-clients">—</div>
+        <div class="stat-delta">↑ 5 new this week</div>
+        <div class="stat-icon">👥</div>
+      </div>
+    </div>
+
+    <div class="grid-3-1">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Revenue Overview</span>
+          <span class="card-action" onclick="showPage('revenue', null)">View details →</span>
+        </div>
+        <div class="chart-container">
+          <div class="chart-legend">
+            <div class="legend-item"><div class="legend-dot" style="background:var(--blue)"></div> This year</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--border)"></div> Last year</div>
+          </div>
+          <div class="chart-bars" id="revenue-chart"></div>
+          <div class="chart-axis" id="chart-months"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Today's Schedule</span>
+          <span class="card-action">Full calendar →</span>
+        </div>
+        <div class="schedule-list" id="today-schedule"></div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Recent Bookings</span>
+          <span class="card-action" onclick="showPage('bookings', null)">View all →</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Client</th><th>Session</th><th>Date</th><th>Status</th></tr>
+            </thead>
+            <tbody id="recent-bookings-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Recent Messages</span>
+          <span class="card-action" onclick="showPage('messages', null)">View all →</span>
+        </div>
+        <div class="msg-list" id="messages-list"></div>
+      </div>
+    </div>
+  </div><!-- /page-dashboard -->
+
+
+  <!-- ══ BOOKINGS PAGE ══ -->
+  <div class="content page" id="page-bookings">
+    <div class="card">
+      <div class="tabs">
+        <div class="tab active" onclick="filterBookings('all', this)">All Bookings</div>
+        <div class="tab" onclick="filterBookings('confirmed', this)">Confirmed</div>
+        <div class="tab" onclick="filterBookings('pending', this)">Pending</div>
+        <div class="tab" onclick="filterBookings('cancelled', this)">Cancelled</div>
+      </div>
+      <div class="filter-bar">
+        <span class="filter-label">Filter:</span>
+        <select class="filter-select" onchange="filterByType(this.value)">
+          <option value="">All Session Types</option>
+          <option>Consultation / First Visit</option>
+          <option>Individual Therapy</option>
+          <option>Couples Therapy</option>
+          <option>Online Session</option>
+        </select>
+        <select class="filter-select" onchange="filterByPayment(this.value)">
+          <option value="">All Payments</option>
+          <option value="paid">Paid</option>
+          <option value="unpaid">Unpaid</option>
+        </select>
+        <button class="export-btn" onclick="exportCSV()">↓ Export CSV</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th><th>Session Type</th><th>Date & Time</th>
+              <th>Amount</th><th>Payment</th><th>Status</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="all-bookings-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- /page-bookings -->
+
+
+  <!-- ══ CLIENTS PAGE ══ -->
+  <div class="content page" id="page-clients">
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">All Clients</span>
+        <button class="export-btn" onclick="openNewClientModal()" style="font-size:0.78rem">+ Add Client</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th><th>Phone</th><th>Total Sessions</th>
+              <th>Last Session</th><th>Notes</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="clients-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div><!-- /page-clients -->
+
+
+  <!-- ══ MESSAGES PAGE ══ -->
+  <div class="content page" id="page-messages">
+    <div class="card">
+      <div class="card-header"><span class="card-title">Inbox</span></div>
+      <div id="all-messages-list"></div>
+    </div>
+  </div><!-- /page-messages -->
+
+
+  <!-- ══ REVENUE PAGE ══ -->
+  <div class="content page" id="page-revenue">
+    <div class="stats-row">
+      <div class="stat-card green">
+        <div class="stat-label">Total Revenue</div>
+        <div class="stat-value">KES 284K</div>
+        <div class="stat-delta">↑ This year</div>
+        <div class="stat-icon">💰</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-label">This Month</div>
+        <div class="stat-value">KES 48K</div>
+        <div class="stat-delta">↑ 8% vs last</div>
+        <div class="stat-icon">📈</div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-label">Unpaid</div>
+        <div class="stat-value">KES 12K</div>
+        <div class="stat-delta down">3 invoices pending</div>
+        <div class="stat-icon">⚠️</div>
+      </div>
+      <div class="stat-card slate">
+        <div class="stat-label">Avg per Session</div>
+        <div class="stat-value">KES 5.8K</div>
+        <div class="stat-delta">↑ Steady</div>
+        <div class="stat-icon">📊</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header"><span class="card-title">Revenue by Session Type</span></div>
+      <div class="quick-list">
+        <div class="quick-item"><span class="quick-label">Individual Therapy</span><span class="quick-value">KES 138,000</span></div>
+        <div class="quick-item"><span class="quick-label">Couples Therapy</span><span class="quick-value">KES 76,500</span></div>
+        <div class="quick-item"><span class="quick-label">Online Sessions</span><span class="quick-value">KES 44,000</span></div>
+        <div class="quick-item"><span class="quick-label">Anxiety & Stress</span><span class="quick-value">KES 18,000</span></div>
+        <div class="quick-item"><span class="quick-label">Consultations</span><span class="quick-value">KES 7,500</span></div>
+      </div>
+    </div>
+  </div><!-- /page-revenue -->
+
+
+  <!-- ══ SETTINGS PAGE ══ -->
+  <div class="content page" id="page-settings">
+    <div class="card" style="max-width:560px;">
+      <div class="card-header"><span class="card-title">Practice Settings</span></div>
+      <div style="padding:1.5rem;">
+        <div class="form-group">
+          <label>Practice Name</label>
+          <input type="text" value="Dr. Amara Osei Psychology" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" value="hello@dramaraosei.co.ke" />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" value="+254 700 000 000" />
+        </div>
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" value="Westlands, Nairobi" />
+        </div>
+        <div class="form-group">
+          <label>Session Availability (Days)</label>
+          <select>
+            <option>Mon – Fri</option>
+            <option>Mon – Sat</option>
+          </select>
+        </div>
+        <button class="export-btn" style="margin-top:0.5rem;">Save Changes</button>
+      </div>
+    </div>
+  </div><!-- /page-settings -->
+
+</main><!-- /main -->
+
+
+<!-- ══ BOOKING DETAIL MODAL ══ -->
+<div class="modal-overlay" id="booking-modal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-title">Booking Details</div>
+      <button class="modal-close" onclick="closeModal('booking-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-grid" id="booking-modal-content"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal danger" onclick="cancelBooking()">Cancel Booking</button>
+      <button class="btn-modal" onclick="closeModal('booking-modal')">Close</button>
+      <button class="btn-modal primary" onclick="confirmBooking()">Mark Confirmed</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NEW CLIENT MODAL ══ -->
+<div class="modal-overlay" id="client-modal">
+  <div class="modal">
+    <div class="modal-top">
+      <div class="modal-title">Add New Client</div>
+      <button class="modal-close" onclick="closeModal('client-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-grid">
+        <div class="form-group"><label>First Name</label><input type="text" id="nc-first" placeholder="Jane" /></div>
+        <div class="form-group"><label>Last Name</label><input type="text" id="nc-last" placeholder="Doe" /></div>
+        <div class="form-group"><label>Email</label><input type="email" id="nc-email" placeholder="jane@email.com" /></div>
+        <div class="form-group"><label>Phone</label><input type="tel" id="nc-phone" placeholder="+254 700 000 000" /></div>
+        <div class="form-group form-full"><label>Notes</label><textarea id="nc-notes" rows="3" placeholder="Any initial notes about the client..."></textarea></div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-modal" onclick="closeModal('client-modal')">Cancel</button>
+      <button class="btn-modal primary" onclick="saveNewClient()">Add Client</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ <span id="toast-msg">Done!</span></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
